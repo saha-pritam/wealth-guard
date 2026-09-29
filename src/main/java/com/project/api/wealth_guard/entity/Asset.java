@@ -1,12 +1,27 @@
 package com.project.api.wealth_guard.entity;
 
-public interface Asset {
-    long getId();
-    void setId(long id);
-    String getName();
-    void setName(String name);
-    String getTicker();
-    void setTicker(String ticker);
-    double getCurrentNav();
-    void setCurrentNav(double currentNav);
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.math.BigDecimal;
+import java.util.List;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
+@Table(name = "asset")
+public abstract class Asset {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    private String name;
+    private String ticker;
+    @Column(precision = 19, scale = 4)
+    private BigDecimal currentNav;
+    @OneToMany(mappedBy = "asset")
+    @ToString.Exclude
+    private List<PortfolioHolding> portfolioHoldings;
 }
