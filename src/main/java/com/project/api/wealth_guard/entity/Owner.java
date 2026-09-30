@@ -28,7 +28,7 @@ public class Owner {
     private String mobile;
     @Column(unique = true, nullable = false)
     private String email;
-    @OneToOne(mappedBy = "owner")
+    @OneToOne(mappedBy = "owner", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @ToString.Exclude
     private Portfolio portfolio;
 }

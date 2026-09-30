@@ -20,10 +20,10 @@ public class Portfolio {
     @Transient
     private BigDecimal totalValue;
     @ToString.Exclude
-    @OneToOne
-    @JoinColumn(name="owner_id")
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="owner_id", nullable = false)
     private Owner owner;
     @ToString.Exclude
-    @OneToMany(mappedBy = "portfolio")
+    @OneToMany(mappedBy = "portfolio", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PortfolioHolding> portfolioHoldings;
 }

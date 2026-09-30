@@ -19,12 +19,12 @@ public class PortfolioHolding {
     private BigDecimal quantity;
     @Column(precision = 19, scale = 4)
     private BigDecimal averageBuyPrice;
-    @ManyToOne
-    @JoinColumn(name="asset_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="asset_id",nullable = false)
     @ToString.Exclude
     private Asset asset;
-    @ManyToOne
-    @JoinColumn(name="portfolio_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="portfolio_id", nullable = false)
     @ToString.Exclude
     private Portfolio portfolio;
 }
