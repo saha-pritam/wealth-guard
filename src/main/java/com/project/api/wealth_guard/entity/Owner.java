@@ -18,7 +18,6 @@ public class Owner {
     private String aadhar;
     @Column(nullable = false)
     private String firstName;
-    @Column(name="middleName")
     private String middleName;
     @Column(nullable = false)
     private String lastName;

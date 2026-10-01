@@ -1,4 +1,4 @@
-1. How to use environment variables in properties file?
+1. How to use environment variables in the properties file?
 2. If an attribute in an entity is not annotated with @Column will the attribute be taken into consideration while creating the table in db?
 3. Explain the JPA Inheritance strategies.
 4. Explain single table strategy.
@@ -6,3 +6,6 @@
 6. Explain table per class strategy.
 7. Explain @MappedSuperClass.
 8. How the Lombok annotations @AllArgsConstructor, @NoArgsConstructor, @ToString, @ToString(callSuper=true) work when there is an inheritance relationship.
+9. How to create separate profiles for different environments in yaml file?
+10.How to initialize a SQL data and schema script in a Spring Boot application?
+11.When deploying the application in a production environment for the first time, how to create the database schema? (Hint: hibernate schema generation techinique, database migration tools like Flyway and Liquibase, ddl-auto as update to validate/none)
