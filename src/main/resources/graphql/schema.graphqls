@@ -1,0 +1,50 @@
+scalar BigDecimal
+scalar LocalDate
+
+interface Asset {
+    id: ID!
+    name: String!
+    ticker: String!
+    currentNav: BigDecimal!
+}
+
+type ExchangeTradedFund implements Asset {
+    # Inherited fields
+    id: ID!
+    name: String!
+    ticker: String!
+    currentNav: BigDecimal!
+
+    # Subclass-specific fields
+    exchange: String!
+    trackingError: BigDecimal!
+}
+
+type MutualFund implements Asset {
+    # Inherited fields
+    id: ID!
+    name: String!
+    ticker: String!
+    currentNav: BigDecimal!
+
+    # Subclass-specific fields
+    fundCategory: String!
+    expenseRatio: BigDecimal!
+    exitLoad: BigDecimal!
+}
+
+type Debenture implements Asset {
+    # Inherited fields
+    id: ID!
+    name: String!
+    ticker: String!
+    currentNav: BigDecimal!
+
+    # Subclass-specific fields
+    couponRate: BigDecimal!
+    maturityDate: LocalDate!
+}
+
+type Query {
+    getMarketAssets: [Asset!]!
+}

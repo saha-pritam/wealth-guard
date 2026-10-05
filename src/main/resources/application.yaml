@@ -9,6 +9,10 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create
+  graphql:
+    http:
+      path: /graphql
+    schema-locations: classpath:schema.graphqls
 ---
 
 #Development Properties
@@ -25,3 +29,7 @@ spring:
       mode: always
       separator: "$$"
       data-locations: classpath:data-seeder.sql
+  graphql:
+    graphiql:
+      enabled: true
+      path: /graphiql

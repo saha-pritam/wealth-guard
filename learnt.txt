@@ -11,3 +11,6 @@
 11. When deploying the application in a production environment for the first time, how to create the database schema? (Hint: hibernate schema generation techinique, database migration tools like Flyway and Liquibase, ddl-auto as update to validate/none)
 12. How does JpaRepository work with an entity that has an inheritance strategy?
 13. When we use @RequiredArgsConstructor, why do we need to make the dependencies final and private?
+14. What is an inline fragment in the context of GraphQL and how to use it in both backend and frontend?
+15. What is the use of scalars in GraphQL and how to use them? How to implement a custom scalar?
+16. What is the use of interface, type, implements keyword in GraphQL?
