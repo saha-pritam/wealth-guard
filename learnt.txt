@@ -20,3 +20,4 @@
 20. What is the use of @BatchMapping?
 21. What is the use of @EntityGraph? Why it is considered as an anti-pattern for GraphQL?
 22. How to write polymorphic query in JPA filtering by child type? In this project context how will you write a JPA query to fetch assets by type?
+23. What is pagination and sorting in JPA? How to chain sorting in JPA?

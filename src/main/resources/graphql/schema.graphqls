@@ -80,4 +80,5 @@ type Query {
     getMarketAssets: [Asset!]!
     getPortfolioById(id: ID!): Portfolio
     getAssetByType(assetType: AssetType!): [Asset!]!
+    getTopHoldings(portfolioId: ID!, limit: Int! = 5): [PortfolioHolding!]!
 }
