@@ -1,6 +1,12 @@
 scalar BigDecimal
 scalar LocalDate
 
+enum AssetType {
+    ExchangeTradedFund
+    MutualFund
+    Debenture
+}
+
 interface Asset {
     id: ID!
     name: String!
@@ -73,4 +79,5 @@ type Portfolio {
 type Query {
     getMarketAssets: [Asset!]!
     getPortfolioById(id: ID!): Portfolio
+    getAssetByType(assetType: AssetType!): [Asset!]!
 }
