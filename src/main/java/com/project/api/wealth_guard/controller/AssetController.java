@@ -15,6 +15,6 @@ public class AssetController {
 
     @QueryMapping
     public List<Asset> getMarketAssets(){
-        return null;
+        return assetService.getAllAssets();
     }
 }

@@ -14,3 +14,8 @@
 14. What is an inline fragment in the context of GraphQL and how to use it in both backend and frontend?
 15. What is the use of scalars in GraphQL and how to use them? How to implement a custom scalar?
 16. What is the use of interface, type, implements keyword in GraphQL?
+17. What is the need for type resolvers in GraphQL and what is its relation with @SchemaMapping?
+18. Can we use @SchemaMapping, @QueryMapping, @BatchMapping outside of a class not annotated with @Controller?
+19. Can we use @SchemaMapping, @QueryMapping, @BatchMapping in different classes?
+20. What is the use of @BatchMapping?
+21. What is the use of @EntityGraph? Why it is considered as an anti-pattern for GraphQL?

@@ -45,6 +45,32 @@ type Debenture implements Asset {
     maturityDate: LocalDate!
 }
 
+type Owner {
+    id: ID!
+    aadhar: String!
+    firstName: String!
+    middleName: String
+    lastName: String!
+    pan: String!
+    mobile: String!
+    email: String!
+}
+
+type PortfolioHolding {
+    id: ID!
+    quantity: BigDecimal!
+    averageBuyPrice: BigDecimal!
+    asset: Asset!
+}
+
+type Portfolio {
+    id: ID!
+    totalValue: BigDecimal
+    owner: Owner!
+    portfolioHoldings: [PortfolioHolding!]!
+}
+
 type Query {
     getMarketAssets: [Asset!]!
+    getPortfolioById(id: ID!): Portfolio
 }
