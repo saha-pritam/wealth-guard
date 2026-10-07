@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 @ToString(callSuper = true)
 @Entity
 @Table(name = "mutual_fund")
-public class MutualFund extends Asset{
+public non-sealed class MutualFund extends Asset implements SearchResult{
     private String fundCategory;
     @Column(precision = 19, scale = 4)
     private BigDecimal expenseRatio;

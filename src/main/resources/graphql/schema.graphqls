@@ -60,6 +60,7 @@ type Owner {
     pan: String!
     mobile: String!
     email: String!
+    portfolio: Portfolio
 }
 
 type PortfolioHolding {
@@ -76,9 +77,12 @@ type Portfolio {
     portfolioHoldings: [PortfolioHolding!]!
 }
 
+union SearchResult = ExchangeTradedFund | Debenture | MutualFund | Owner
+
 type Query {
     getMarketAssets: [Asset!]!
     getPortfolioById(id: ID!): Portfolio
     getAssetByType(assetType: AssetType!): [Asset!]!
     getTopHoldings(portfolioId: ID!, limit: Int! = 5): [PortfolioHolding!]!
+    globalSearch(text: String!): [SearchResult!]!
 }

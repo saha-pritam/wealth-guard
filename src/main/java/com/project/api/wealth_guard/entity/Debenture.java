@@ -14,7 +14,7 @@ import java.time.LocalDate;
 @ToString(callSuper = true)
 @Entity
 @Table(name = "debenture")
-public class Debenture extends Asset{
+public non-sealed class Debenture extends Asset implements SearchResult {
     @Column(precision = 19, scale = 4)
     private BigDecimal couponRate;
     private LocalDate maturityDate;

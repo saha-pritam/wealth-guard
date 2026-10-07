@@ -10,7 +10,7 @@ import lombok.*;
 @ToString
 @Entity
 @Table(name = "owner")
-public class Owner {
+public non-sealed class Owner implements SearchResult {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -27,7 +27,4 @@ public class Owner {
     private String mobile;
     @Column(unique = true, nullable = false)
     private String email;
-    @OneToOne(mappedBy = "owner", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @ToString.Exclude
-    private Portfolio portfolio;
 }

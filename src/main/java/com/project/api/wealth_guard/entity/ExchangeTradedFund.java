@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 @ToString(callSuper = true)
 @Entity
 @Table(name = "exchange_traded_fund")
-public class ExchangeTradedFund extends Asset{
+public non-sealed class ExchangeTradedFund extends Asset implements SearchResult{
     private String exchange;
     @Column(precision = 19, scale = 4)
     private BigDecimal trackingError;
