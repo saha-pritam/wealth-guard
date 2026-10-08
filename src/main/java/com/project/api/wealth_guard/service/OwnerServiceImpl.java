@@ -4,6 +4,7 @@ import com.project.api.wealth_guard.entity.Owner;
 import com.project.api.wealth_guard.entity.Portfolio;
 import com.project.api.wealth_guard.repository.OwnerRepository;
 import com.project.api.wealth_guard.repository.PortfolioRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -28,5 +29,13 @@ public class OwnerServiceImpl implements OwnerService{
         List<Portfolio> portfolios = portfolioRepository.findAllByOwnerId(owners);
         Map<Owner, Portfolio> ownerPortfolioMap = portfolios.stream().collect(Collectors.toMap(portfolio -> ownerMap.get(portfolio.getOwner().getId()), portfolio -> portfolio));
         return ownerPortfolioMap;
+    }
+
+    @Transactional
+    @Override
+    public Owner register(Owner owner) {
+        owner = ownerRepository.save(owner);
+        portfolioRepository.save(new Portfolio(owner));
+        return owner;
     }
 }

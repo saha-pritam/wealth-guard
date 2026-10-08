@@ -9,4 +9,5 @@ import java.util.Map;
 public interface OwnerService {
     List<Owner> findByText(String text);
     Map<Owner, Portfolio> portfolio(List<Owner> owners);
+    Owner register(Owner owner);
 }

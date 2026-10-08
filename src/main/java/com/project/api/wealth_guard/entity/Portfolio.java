@@ -2,9 +2,9 @@ package com.project.api.wealth_guard.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import lombok.ToString.Exclude;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -25,5 +25,9 @@ public class Portfolio {
     private Owner owner;
     @ToString.Exclude
     @OneToMany(mappedBy = "portfolio", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<PortfolioHolding> portfolioHoldings;
+    private List<PortfolioHolding> portfolioHoldings = new ArrayList<>();
+
+    public Portfolio(Owner owner){
+        this.owner = owner;
+    }
 }

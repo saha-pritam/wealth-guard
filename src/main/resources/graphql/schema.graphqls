@@ -86,3 +86,17 @@ type Query {
     getTopHoldings(portfolioId: ID!, limit: Int! = 5): [PortfolioHolding!]!
     globalSearch(text: String!): [SearchResult!]!
 }
+
+input OwnerInput {
+    aadhar: String!
+    firstName: String!
+    middleName: String
+    lastName: String!
+    pan: String!
+    mobile: String!
+    email: String!
+}
+
+type Mutation {
+    registerOwner(ownerInput: OwnerInput!): Owner!
+}

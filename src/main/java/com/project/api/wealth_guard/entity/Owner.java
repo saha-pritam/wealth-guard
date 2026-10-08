@@ -1,5 +1,6 @@
 package com.project.api.wealth_guard.entity;
 
+import com.project.api.wealth_guard.dto.input.OwnerInput;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -27,4 +28,14 @@ public non-sealed class Owner implements SearchResult {
     private String mobile;
     @Column(unique = true, nullable = false)
     private String email;
+
+    public Owner(OwnerInput ownerInput){
+        this.firstName = ownerInput.firstName();
+        this.middleName = ownerInput.middleName();
+        this.lastName = ownerInput.lastName();
+        this.mobile = ownerInput.mobile();
+        this.email = ownerInput.email();
+        this.aadhar = ownerInput.aadhar();
+        this.pan = ownerInput.pan();
+    }
 }

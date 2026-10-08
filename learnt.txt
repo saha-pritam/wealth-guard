@@ -24,3 +24,5 @@
 24. What is cyclic relationships in GraphQL?
 25. What is query depth in GraphQL?
 26. What is the use of union type in GraphQL? Does union works with interfaces?
+27. Explain the input keyword in GraphQL.
+28. How to create a mutual query in GraphQL?
