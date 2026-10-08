@@ -26,3 +26,6 @@
 26. What is the use of union type in GraphQL? Does union works with interfaces?
 27. Explain the input keyword in GraphQL.
 28. How to create a mutual query in GraphQL?
+29. Which is better doing some more database call for some action or saving the JVM memory for some action?
+30. Why it is advised to never let the ORM manage the collections?
+
