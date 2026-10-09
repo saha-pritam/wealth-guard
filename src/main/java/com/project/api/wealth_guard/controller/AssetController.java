@@ -34,4 +34,14 @@ public class AssetController {
     public Portfolio buyAsset(@Argument Long portfolioId, @Argument Long assetId, @Argument BigDecimal quantity){
         return assetService.buyAsset(portfolioId, assetId, quantity);
     }
+
+    @MutationMapping
+    public Portfolio sellAsset(@Argument Long portfolioId, @Argument Long assetId, @Argument BigDecimal quantity){
+        return assetService.sellAsset(portfolioId, assetId, quantity);
+    }
+
+    @MutationMapping
+    public Asset updateNavPrice(@Argument String ticker, @Argument BigDecimal newNav){
+        return assetService.updateNavPrice(ticker, newNav);
+    }
 }

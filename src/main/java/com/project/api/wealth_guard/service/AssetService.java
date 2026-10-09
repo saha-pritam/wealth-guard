@@ -15,4 +15,6 @@ public interface AssetService {
     Map<PortfolioHolding, Asset> getAssetByPortfolioHoldings(List<PortfolioHolding> portfolioHoldings);
     List<Asset> getAssetsByType(AssetType assetType);
     Portfolio buyAsset(Long portfolioId, Long assetId, BigDecimal quantity);
+    Portfolio sellAsset(Long portfolioId, Long assetId, BigDecimal quantity);
+    Asset updateNavPrice(String ticker, BigDecimal navPrice);
 }

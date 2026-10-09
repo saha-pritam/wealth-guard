@@ -73,4 +73,40 @@ public class AssetServiceImpl implements AssetService{
         portfolioHoldingRepository.save(portfolioHolding);
         return portfolio;
     }
+
+    @Transactional
+    @Override
+    public Portfolio sellAsset(Long portfolioId, Long assetId, BigDecimal quantity) {
+        Asset asset = assetRepository.findById(assetId).orElseThrow(() -> new RuntimeException("Asset not found with id: " + assetId + ""));
+        Portfolio portfolio = portfolioRepository.findById(portfolioId).orElseThrow(() -> new RuntimeException("Portfolio not found with id: " + portfolioId + ""));
+        PortfolioHolding portfolioHolding = portfolioHoldingRepository.findByPortfolioAndAsset(portfolio, asset);
+        if(portfolioHolding == null){
+            throw new RuntimeException("Portfolio holding not found for asset: " + assetId + " and portfolio: " + portfolioId);
+        }
+        else if(quantity.compareTo(portfolioHolding.getQuantity()) > 0){
+            throw new RuntimeException("Quantity cannot be greater than the quantity held: " + quantity + " for asset: " + assetId + " and portfolio: " + portfolioId);
+        }
+        else if(quantity.compareTo(portfolioHolding.getQuantity()) < 0){
+            portfolioHolding.setQuantity(portfolioHolding.getQuantity().subtract(quantity));
+            portfolioHoldingRepository.save(portfolioHolding);
+        }
+        else {
+            portfolioHoldingRepository.delete(portfolioHolding);
+        }
+        return portfolio;
+    }
+
+    @Transactional
+    @Override
+    public Asset updateNavPrice(String ticker, BigDecimal navPrice) {
+        Asset asset = assetRepository.findByTicker(ticker);
+        if(asset == null){
+            throw new RuntimeException("Asset not found with ticker: " + ticker);
+        }
+        else{
+            asset.setCurrentNav(navPrice);
+        }
+        System.out.println("Asset updated: " + asset);
+        return asset;
+    }
 }

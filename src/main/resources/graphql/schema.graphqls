@@ -100,4 +100,6 @@ input OwnerInput {
 type Mutation {
     registerOwner(ownerInput: OwnerInput!): Owner!
     buyAsset(portfolioId: ID!, assetId: ID!, quantity: BigDecimal!): Portfolio!
+    sellAsset(portfolioId: ID!, assetId: ID!, quantity: BigDecimal!): Portfolio!
+    updateNavPrice(ticker: String!, newNav: BigDecimal!): Asset!
 }

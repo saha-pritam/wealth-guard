@@ -18,4 +18,6 @@ public interface AssetRepository extends JpaRepository<Asset, Long> {
 
     @Query("SELECT asset FROM Asset asset WHERE TYPE(asset) = Debenture")
     List<Asset> findAllDebentures();
+
+    Asset findByTicker(String ticker);
 }
